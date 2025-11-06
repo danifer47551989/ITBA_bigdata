@@ -20,13 +20,6 @@ git commit -m "probar actions"
 git push origin main
 
 
-MLFlow
-------
-docker pull ghcr.io/mlflow/mlflow:v3.6.0rc0  
-o
-mlflow server --backend-store-uri sqlite:///mlflow.db --port 5000
-
-MLflow escuchando en http://localhost:5000/
 
 
 Agregar al mlflow.ipynb 
@@ -35,7 +28,12 @@ Agregar al mlflow.ipynb
     mlflow.sklearn.log_model(modelo, "modelo_iris",  input_example=input_example)
 
 
-Para cDcoker
+EJECUTAR MLFlow
+---------------
+1. mlflow server --backend-store-uri sqlite:///mlflow.db --port 5000
+MLflow escuchando en http://localhost:5000/
+
+2. Para Docker
 Crear dockerfile con:
 ###################
 FROM python:3.10
@@ -48,6 +46,11 @@ CMD ["mlflow", "server", "--backend-store-uri", "sqlite:///mlflow.db", "--defaul
 ###############
 Y ejecutar
     docker run -p 5000:5000 mlflow-server
+
+3. local: mlflow ui
+
+
+
 
 
 
