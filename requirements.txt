@@ -3,6 +3,6 @@ scikit-learn
 pandas
 numpy
 seaborn
-apache-airflow
-evidently
+#apache-airflow
+#evidently
 

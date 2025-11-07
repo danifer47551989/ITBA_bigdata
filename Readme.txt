@@ -20,14 +20,6 @@ git commit -m "probar actions"
 git push origin main
 
 
-
-
-Agregar al mlflow.ipynb 
-    # Crear signature del modelo
-    input_example = X_test_scaled[:5]  # Using first 5 samples from test set
-    mlflow.sklearn.log_model(modelo, "modelo_iris",  input_example=input_example)
-
-
 EJECUTAR MLFlow
 ---------------
 1. mlflow server --backend-store-uri sqlite:///mlflow.db --port 5000
@@ -45,7 +37,8 @@ EXPOSE 5000
 CMD ["mlflow", "server", "--backend-store-uri", "sqlite:///mlflow.db", "--default-artifact-root", "/mlruns", "--host", "0.0.0.0", "--port", "5000"]
 ###############
 Y ejecutar
-    docker run -p 5000:5000 mlflow-server
+    docker build -t mlflow-server .      
+    docker run -p 5000:5000 mlflow-server .
 
 3. local: mlflow ui
 
